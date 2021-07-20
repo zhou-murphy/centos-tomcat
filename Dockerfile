@@ -1,6 +1,6 @@
 # Centos based container with Java and Tomcat
 FROM centos:centos7
-MAINTAINER kirillf
+MAINTAINER zhou.zf
 
 # Install prepare infrastructure
 RUN yum -y update && \
@@ -24,9 +24,9 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
 
 # Install Tomcat
 ENV TOMCAT_MAJOR 9
-ENV TOMCAT_VERSION 9.0.39
+ENV TOMCAT_VERSION 9.0.50
 
-RUN wget http://mirror.linux-ia64.org/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
+RUN wget https://ftp.kddi-research.jp/infosystems/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
  tar -xvf apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
  rm apache-tomcat*.tar.gz && \
  mv apache-tomcat* ${CATALINA_HOME}
